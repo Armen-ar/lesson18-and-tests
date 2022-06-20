@@ -5,6 +5,7 @@ from setup_db import db
 from views.books import book_ns
 from models import Book
 
+
 def create_app():
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'

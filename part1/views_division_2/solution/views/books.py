@@ -1,7 +1,8 @@
 from flask import request
 from flask_restx import Resource, Namespace
+
 from models import Book
-from setup_db import db
+from part1.final.solution.setup_db import db
 
 book_ns = Namespace('books')
 
