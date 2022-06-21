@@ -35,7 +35,6 @@ from setup_db import db
 
 def create_app():
     app = Flask(__name__)
-    app.url_map.strict_slashes = False
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     configure_app(app)

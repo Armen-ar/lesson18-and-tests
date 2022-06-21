@@ -35,11 +35,11 @@ def create_app():
     app = Flask(__name__)
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    register_extensions(app)
+    configure_app(app)
     return app
 
 
-def register_extensions(app):
+def configure_app(app):
     db.init_app(app)
     api = Api(app)
     api.add_namespace(book_ns)
