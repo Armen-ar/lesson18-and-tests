@@ -33,3 +33,4 @@ class AuthorView(Resource):
         res = author.__dict__
         del res['_sa_instance_state']
         return res, 200
+

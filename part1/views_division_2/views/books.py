@@ -35,3 +35,4 @@ class BookView(Resource):
         result = book.__dict__
         del result['_sa_instance_state']
         return result, 200
+

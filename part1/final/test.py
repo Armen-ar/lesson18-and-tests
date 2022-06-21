@@ -52,7 +52,7 @@ class StructureTestCase(SkyproTestCase):
         expected_resources = ['/', '/<int:rid>']
         for expected in expected_resources:
             self.assertIn(expected, resources_list,
-            '%@ Проверьте что фаил books содержит view-функцию для '
+            '%@ Проверьте что фаил reviews содержит view-функцию для '
             f' адреса /"{namespace}{expected}"')
 
 

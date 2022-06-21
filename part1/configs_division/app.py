@@ -53,16 +53,18 @@
 # Cделайте GET-запрос на адрес http://127.0.0.1/phones, который
 # вернет ответ со списком ранее загруженных в базу телефонов
 
-
 import requests
 from flask import Flask, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
+from config import Config
+
+config = Config()
+
 app = Flask(__name__)
 
 app.url_map.strict_slashes = False
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:' # TODO cохраните данные настройки 
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False         # в классе Сonfig файла config.py
+app.config.from_object(config)
 db = SQLAlchemy(app)
 
 
@@ -79,7 +81,7 @@ db.create_all()
 
 @app.route("/import")
 def import_data():
-    data = requests.get(url='https://jsonkeeper.com/b/QBYO') # TODO Здесь добавьте ссылку на внешнее хранилище
+    data = requests.get(app.config.get("API_URL"))
     for d in data.json():
         p = Phone(**d)
         with db.session.begin():
@@ -92,7 +94,7 @@ def phones():
     phones_data = Phone.query.all()
     res = []
     for s in phones_data:
-        sm_d = s.__dict__ 
+        sm_d = s.__dict__
         del sm_d['_sa_instance_state']
         res.append(sm_d)
     return jsonify(res), 200

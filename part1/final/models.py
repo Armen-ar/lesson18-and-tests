@@ -35,3 +35,4 @@ class ReviewsSchema(Schema):
     user = fields.Str()
     rating = fields.Int()
     book_id = fields.Int()
+

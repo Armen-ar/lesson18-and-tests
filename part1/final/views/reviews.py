@@ -56,3 +56,4 @@ class ReviewView(Resource):
         db.session.commit()
 
         return "", 204
+

@@ -16,3 +16,4 @@ class BooksView(Resource):
 class BookView(Resource):
     def get(self, bid):
         return bid, 200
+

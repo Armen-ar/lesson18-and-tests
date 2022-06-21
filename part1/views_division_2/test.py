@@ -17,7 +17,7 @@ from ttools.skyprotests.tests_mixins import ResponseTestsMixin  # noqa: E402
 
 class ArchitectureTestCase(SkyproTestCase):
     def setUp(self):
-        self.checkpath = basepath.joinpath('part1', 'views-division-2')
+        self.checkpath = basepath.joinpath('part1', 'views_division_2')
 
     def test_folder_views_is_created(self):
         folder = 'views'

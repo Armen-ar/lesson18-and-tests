@@ -17,7 +17,7 @@ from ttools.skyprotests.tests_mixins import ResponseTestsMixin  # noqa: E402
 
 class ArchitectureTestCase(SkyproTestCase, ResponseTestsMixin):
     def setUp(self):
-        self.checkpath = basepath.joinpath('part1', 'configs-division')
+        self.checkpath = basepath.joinpath('part1', 'configs_division')
         self.student_app = app.app.test_client()
         self.obj_list = [
             {

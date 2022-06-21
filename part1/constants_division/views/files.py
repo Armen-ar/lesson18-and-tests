@@ -27,3 +27,4 @@ class FileView(Resource):
         sm_d = file.__dict__
         del sm_d['_sa_instance_state']
         return sm_d, 200
+

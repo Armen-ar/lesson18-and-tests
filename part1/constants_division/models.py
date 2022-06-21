@@ -16,3 +16,4 @@ class File(db.Model):
     name = db.Column(db.String(100))
     path = db.Column(db.String(100))
     size = db.Column(db.Integer)
+

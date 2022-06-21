@@ -33,3 +33,4 @@ class SmartPhoneView(Resource):
         sm_d["down_payment"] = down_payment
         sm_d["monthly_fee"] = ((sm_d["price"] - down_payment) * (1 + ANNUAL_RATE)) / 12
         return sm_d, 200
+
