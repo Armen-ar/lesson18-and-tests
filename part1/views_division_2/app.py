@@ -33,23 +33,20 @@ from models import Book
 
 def create_app():
     app = Flask(__name__)
-    app.url_map.strict_slashes = False
     app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///:memory:'
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-    app.config['JSON_AS_ASCII'] = False
-    configure_app(app)
-
+    register_extensions(app)
     return app
 
 
-def configure_app(app):
+def register_extensions(app):
     db.init_app(app)
     api = Api(app)
     api.add_namespace(book_ns)
-    lode_data(app, db)
+    create_data(app, db)
 
 
-def lode_data(app, db):
+def create_data(app, db):
     with app.app_context():
         db.create_all()
         b1 = Book(id=1, name="Гарри Поттер и Тайная Комната",   # Формируем тестовую БД

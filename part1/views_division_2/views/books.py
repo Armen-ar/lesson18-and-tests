@@ -1,8 +1,7 @@
 from flask import request
 from flask_restx import Resource, Namespace
 
-from models import Book
-
+from part1.views_division_2.models import Book
 from part1.views_division_2.setup_db import db
 
 book_ns = Namespace('books')
